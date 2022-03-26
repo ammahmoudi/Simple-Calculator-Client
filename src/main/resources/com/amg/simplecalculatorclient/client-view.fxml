@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <StackPane fx:id="buttom_stack_pane" prefHeight="39.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox fx:id="buttom_h_box" alignment="CENTER" prefHeight="55.0" prefWidth="600.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="server_address_text_field" promptText="server address" />
+                  <TextField fx:id="server_port_text_field" prefHeight="26.0" prefWidth="75.0" promptText="server port" />
+                  <JFXButton fx:id="send_button1" alignment="CENTER" contentDisplay="RIGHT" defaultButton="true" onAction="#OnSendButtonAction" prefHeight="24.0" prefWidth="86.0" ripplerFill="#0e5ce1" style="-fx-background-color: #088F85; -fx-background-radius: 8px;" text="connect" textFill="WHITE">
+                     <graphic>
+                        <FontIcon fill="WHITE" iconLiteral="fltfal-caret-right-24" iconSize="15" selectionEnd="0" selectionStart="0" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+   </bottom>
+   <center>
+      <TextArea fx:id="console_text_area" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <VBox fx:id="top_vbox" alignment="CENTER" prefHeight="124.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox fx:id="top_hbox" alignment="CENTER" prefHeight="70.0" prefWidth="600.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="number_1_text_field" promptText="number 1" />
+                  <ComboBox fx:id="operator_combo_box" prefHeight="26.0" prefWidth="91.0" promptText="Operator" />
+                  <TextField fx:id="number_2_text_field" promptText="number 2" />
+                  <JFXButton fx:id="send_button" alignment="CENTER" contentDisplay="RIGHT" defaultButton="true" onAction="#OnSendButtonAction" prefHeight="34.0" prefWidth="70.0" ripplerFill="#0e5ce1" style="-fx-background-color: #07B3DB; -fx-background-radius: 8px;" text="send" textFill="WHITE">
+                     <graphic>
+                        <FontIcon fill="WHITE" iconLiteral="fltfmz-send-28" iconSize="15" selectionEnd="0" selectionStart="0" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <Label fx:id="status_label" alignment="CENTER" text="status" textAlignment="CENTER" />
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
