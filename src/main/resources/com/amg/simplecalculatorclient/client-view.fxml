@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
@@ -13,18 +13,25 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.amg.simplecalculatorclient.ClientController">
    <bottom>
-      <StackPane fx:id="buttom_stack_pane" prefHeight="39.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <StackPane fx:id="bottom_stack_pane" prefHeight="39.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox fx:id="buttom_h_box" alignment="CENTER" prefHeight="55.0" prefWidth="600.0" spacing="10.0">
+            <HBox fx:id="bottom_h_box" alignment="CENTER" prefHeight="55.0" prefWidth="600.0" spacing="10.0">
                <children>
-                  <TextField fx:id="server_address_text_field" promptText="server address" />
-                  <TextField fx:id="server_port_text_field" prefHeight="26.0" prefWidth="75.0" promptText="server port" />
-                  <JFXButton fx:id="send_button1" alignment="CENTER" contentDisplay="RIGHT" defaultButton="true" onAction="#OnSendButtonAction" prefHeight="24.0" prefWidth="86.0" ripplerFill="#0e5ce1" style="-fx-background-color: #088F85; -fx-background-radius: 8px;" text="connect" textFill="WHITE">
+                  <JFXTextField fx:id="server_ip_text_field" promptText="Server IP" unFocusColor="#317f74">
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXTextField fx:id="server_port_text_field" layoutX="287.0" layoutY="17.0" prefHeight="26.0" prefWidth="86.0" promptText="Server port" unFocusColor="#317f74">
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXButton fx:id="connect_button" alignment="CENTER" contentDisplay="RIGHT" defaultButton="true" onAction="#OnConnectButtonAction" prefHeight="35.0" prefWidth="113.0" ripplerFill="#0e5ce1" style="-fx-background-color: #088F85; -fx-background-radius: 8px;" text="connect" textFill="WHITE">
                      <graphic>
-                        <FontIcon fill="WHITE" iconLiteral="fltfal-caret-right-24" iconSize="15" selectionEnd="0" selectionStart="0" />
+                        <FontIcon fx:id="connect_icon" fill="WHITE" iconLiteral="fltfal-caret-right-24" iconSize="15" selectionEnd="0" selectionStart="0" />
                      </graphic>
                      <font>
                         <Font name="System Bold" size="13.0" />
@@ -36,6 +43,9 @@
                </children>
             </HBox>
          </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
       </StackPane>
    </bottom>
    <center>
@@ -46,12 +56,20 @@
          <children>
             <HBox fx:id="top_hbox" alignment="CENTER" prefHeight="70.0" prefWidth="600.0" spacing="10.0">
                <children>
-                  <TextField fx:id="number_1_text_field" promptText="number 1" />
-                  <ComboBox fx:id="operator_combo_box" prefHeight="26.0" prefWidth="91.0" promptText="Operator" />
-                  <TextField fx:id="number_2_text_field" promptText="number 2" />
-                  <JFXButton fx:id="send_button" alignment="CENTER" contentDisplay="RIGHT" defaultButton="true" onAction="#OnSendButtonAction" prefHeight="34.0" prefWidth="70.0" ripplerFill="#0e5ce1" style="-fx-background-color: #07B3DB; -fx-background-radius: 8px;" text="send" textFill="WHITE">
+                  <JFXTextField fx:id="number_1_text_field" labelFloat="true" layoutX="249.0" layoutY="32.0" prefHeight="26.0" prefWidth="128.0" promptText="Number 1" unFocusColor="#317f74">
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXComboBox fx:id="operator_combo_box" labelFloat="true" prefHeight="26.0" prefWidth="66.0" promptText="Operator" unFocusColor="#1e72a2" />
+                  <JFXTextField fx:id="number_2_text_field" labelFloat="true" prefHeight="26.0" prefWidth="119.0" promptText="Number 2" unFocusColor="#317f74">
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXButton fx:id="send_button" alignment="CENTER" contentDisplay="RIGHT" defaultButton="true" onAction="#OnSendButtonAction" prefHeight="35.0" prefWidth="191.0" ripplerFill="#0e5ce1" style="-fx-background-color: #07B3DB; -fx-background-radius: 8px;" text="send" textFill="WHITE" wrapText="true" HBox.hgrow="ALWAYS">
                      <graphic>
-                        <FontIcon fill="WHITE" iconLiteral="fltfmz-send-28" iconSize="15" selectionEnd="0" selectionStart="0" />
+                        <FontIcon fx:id="send_icon" fill="WHITE" iconLiteral="fltfmz-send-28" iconSize="15" selectionEnd="0" selectionStart="0" />
                      </graphic>
                      <font>
                         <Font name="System Bold" size="13.0" />
